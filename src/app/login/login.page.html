@@ -1,0 +1,41 @@
+<ion-grid class="background-image">
+</ion-grid>
+
+<ion-content text-center>
+  <ion-card id="cardLogin">
+    <ion-card-content>
+      <ion-list class="listaInputs">
+        <ion-item class="ion-text-center border-radius">
+          <ion-input class="inputMail" type="email" [(ngModel)]="user.email" placeholder="Correo"
+            value="{{usuarioSeleccionado.email}}"> </ion-input>
+        </ion-item>
+
+        <ion-item class="ion-text-center border-radius">
+          <ion-input class="inputPassword" type="password" [(ngModel)]="user.password" placeholder="Contraseña"
+            value="{{usuarioSeleccionado.password}}">
+          </ion-input>
+        </ion-item>
+
+      </ion-list>
+      <ion-icon name="arrow-round-forward" class="iconLogin" (click)="OnLogin()">Ingresar</ion-icon>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content id="contenedorAccesoRapido">
+      <ion-grid>
+        <ion-row>
+          <ion-col *ngFor="let usuario of usuarios">
+            <img class="iconUserLogin zoomImgEfect" (click)="cargarUsuarioEnInput(usuario)"
+              src="../../assets/images/{{usuario.perfil}}.png" alt="imagen {{usuario.perfil}}">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<div class="footer">
+  <ion-label>No tenes cuenta?</ion-label>
+  <ion-button size="small" color="secondary"
+    class="ion-color ion-color-secondary ios button button-small button-solid ion-activatable ion-focusable hydrated buttonLarge"
+    routerLink="/register">Registrate aqui</ion-button>
+</div>

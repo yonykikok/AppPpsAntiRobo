@@ -1,0 +1,19 @@
+<ion-content class="background-image centrado">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-icon *ngIf="presionado" name="power" id="buttonStart" (click)="activarDesactivarAlarma()"></ion-icon>
+        <ion-icon *ngIf="!presionado" name="power" id="buttonStop" (click)="activarDesactivarAlarma()"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <br>
+    <ion-col>
+      <ion-col size="6" offset="3">
+        <p *ngIf="presionado" class="ingresarDesdeDerecha">Alarma Activada</p>
+        <!-- <p >X: {{x}}</p>
+        <p >Y: {{y}}</p>
+        <p >Z: {{z}}</p> -->
+      </ion-col>
+    </ion-col>
+  </ion-grid>
+</ion-content>
