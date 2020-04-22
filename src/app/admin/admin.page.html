@@ -1,21 +1,35 @@
-<ion-content>
-<ion-header>
-  <ion-toolbar>
-    <ion-title>admin</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-button expand="block" routerLink="/">Home</ion-button>
-<ion-card-content >
-  <ion-card-title text-center>
-    Zona de administradores
-  </ion-card-title>
-  <ion-grid items-center>
-    <ion-row size="12" align-items-center>
-      <ion-col size="6" offset="3">
-        <ion-img src="../../assets/images/AdminZone.png" size="5"></ion-img>
+<ion-content class="background-image centrado" >
+  <ion-card *ngIf="showDialog"> 
+    <ion-card-header>
+      <ion-card-title>Cofirnar identidad</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item color="none">
+        <ion-input class="centrado" type='password' placeholder="Ingrese su password" [(ngModel)]="password"
+          name="password" required>
+        </ion-input>
+      </ion-item>
+      <ion-icon *ngIf="estado==''" class="btnVerificacion" id="btnVerificar"  name="chevron-forward-outline" (click)="activarDesactivarAlarma()"></ion-icon>
+      <ion-icon *ngIf="estado=='permitido'" class="btnVerificacion" id="btnSuccess" name="checkmark-done-outline"></ion-icon>
+      <ion-icon *ngIf="estado=='denegado'" class="btnVerificacion" id="btnFail" name="close-outline"></ion-icon>
+    </ion-card-content>
+    </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-icon *ngIf="presionado" name="power" id="buttonStart" (click)="activarDesactivarAlarma()"></ion-icon>
+        <ion-icon *ngIf="!presionado" name="power" id="buttonStop" (click)="activarDesactivarAlarma()"></ion-icon>
       </ion-col>
     </ion-row>
+    <br>
+    <ion-col>
+      <ion-col size="6" offset="3">
+        <!-- <p *ngIf="presionado" class="ingresarDesdeDerecha">Alarma Activada</p> -->
+        <!-- <p>X: {{accelerationX}}</p>
+        <p>Y: {{accelerationY}}</p>
+        <p>Z: {{accelerationZ}}</p> -->
+      </ion-col>
+    </ion-col>
   </ion-grid>
-</ion-card-content>
+ 
 </ion-content>

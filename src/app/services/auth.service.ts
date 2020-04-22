@@ -1,33 +1,34 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { User } from './../shared/user.class';
+import { User } from 'src/app/clases/user';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  public isLogged: any = false;
-  constructor(public afAuth: AngularFireAuth) {
-    afAuth.authState.subscribe(user => (this.isLogged = user));
+  currentUser:any;
+  isLogged: any = false;
+  constructor(private angularFireAuth: AngularFireAuth,
+    ) {
+    this.angularFireAuth.authState.subscribe(user => (this.isLogged = user));
   }
+
+
   //LOGIN
-  async OnLogin(user:User) {
+  async onLogin(user: User) {
     try {
-      return await this.afAuth.auth.signInWithEmailAndPassword(
-        user.email,
-        user.password
-      );
+      return await this.angularFireAuth.signInWithEmailAndPassword(user.email, user.password);
     } catch (error) {
-      console.log('ERROR al logear ', error);
+      // console.log(error);
+      return error;
     }
   }
   //REGISTER
-  async OnRegister(user:User) {
+  async onRegister(user: User) {
     try {
-     return await this.afAuth.auth.createUserWithEmailAndPassword(user.email,
-      user.password
-      );
+      return await this.angularFireAuth.createUserWithEmailAndPassword(user.email, user.password);
     } catch (error) {
-      console.log('ERROR al registrar usuario ', error);
+      console.log(error);
     }
   }
 }

@@ -1,7 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from "@angular/router";
-import {AngularFireAuth} from '@angular/fire/auth';
-import { AuthService } from './../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -10,11 +7,6 @@ import { AuthService } from './../services/auth.service';
 })
 export class HomePage {
 
-  constructor(private authService: AuthService, private router: Router, private angularFireAuth: AngularFireAuth) {}
+  constructor() {}
 
-  async OnLogout(){
-    console.log('DESLOGEADO');
-    this.angularFireAuth.auth.signOut();
-    this.router.navigateByUrl('/login');
-  }
 }

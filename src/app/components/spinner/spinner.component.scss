@@ -1,0 +1,43 @@
+.spinner{
+    border-radius: 100%;
+    min-width: 50px;
+    min-height: 50px;
+    position: absolute;
+    top: 34%;
+    left: 30%;
+    animation-name: rotacion;
+    animation-iteration-count: infinite;
+    animation-duration: 3s;
+  }
+  
+  #divUno{
+  
+    border-top: 2px solid blue;
+    border-bottom: 2px solid yellow;
+  }
+  #divDos{
+    border-right: 2px solid pink;
+    border-left: 2px solid orange;
+  }
+  #divTres{
+    border-top: 2px solid rgb(255, 10, 153);
+    border-bottom: 2px solid rgb(68, 196, 255);
+  }
+  #divCuatro{
+  
+    border-right: 2px solid red;
+    border-left: 2px solid green;
+  }
+  
+  @keyframes rotacion{
+    from{
+      transform: rotateZ(0deg) ;
+    }
+    50%{
+      transform: rotateZ(180deg) ;
+    }
+    to{
+      transform: rotateZ(360deg);
+      
+    }
+  }

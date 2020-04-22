@@ -1,41 +1,35 @@
-<ion-grid class="background-image">
-</ion-grid>
+<ion-header class="centrado">
+  <img id="imgLeft" src="../../assets/images/backgroundKeyLeft.jpg">
+  <img id="imgRight" src="../../assets/images/backgroundKeyRigth.jpg">
+</ion-header>
 
-<ion-content text-center>
-  <ion-card id="cardLogin">
-    <ion-card-content>
-      <ion-list class="listaInputs">
-        <ion-item class="ion-text-center border-radius">
-          <ion-input class="inputMail" type="email" [(ngModel)]="user.email" placeholder="Correo"
-            value="{{usuarioSeleccionado.email}}"> </ion-input>
-        </ion-item>
 
-        <ion-item class="ion-text-center border-radius">
-          <ion-input class="inputPassword" type="password" [(ngModel)]="user.password" placeholder="Contraseña"
-            value="{{usuarioSeleccionado.password}}">
+<ion-content>
+  <ion-card>
+    <ion-card-header class="centrado">
+      <ion-card-title>
+        <h1>Ingreso</h1>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content card-transparent>
+      <form class="centrado">
+        <ion-item color="none">
+          <ion-input class="centrado" type='email' placeholder="Ingrese su correo" [(ngModel)]="user.email" name="email"
+            required>
           </ion-input>
         </ion-item>
+        <ion-item color="none">
+          <ion-input class="centrado" type='password' placeholder="Ingrese su contraseña" [(ngModel)]="user.password"
+            name="password" required></ion-input>
+        </ion-item>
+        <ion-button ion-button expand="full" shape="round" type="submit" (click)="onLogin()" block>Ingresar</ion-button>
+      </form>
+      <ion-item id="divUsuarios" class="centrado" color="none" lines="none">
+        <ion-icon class="iconUser" name="key-outline" *ngFor="let usuario of listaUsuarios"
+          (click)="seleccionarUsuario(usuario)"></ion-icon>
+      </ion-item>
 
-      </ion-list>
-      <ion-icon name="arrow-round-forward" class="iconLogin" (click)="OnLogin()">Ingresar</ion-icon>
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-content id="contenedorAccesoRapido">
-      <ion-grid>
-        <ion-row>
-          <ion-col *ngFor="let usuario of usuarios">
-            <img class="iconUserLogin zoomImgEfect" (click)="cargarUsuarioEnInput(usuario)"
-              src="../../assets/images/{{usuario.perfil}}.png" alt="imagen {{usuario.perfil}}">
-          </ion-col>
-        </ion-row>
-      </ion-grid>
     </ion-card-content>
   </ion-card>
 </ion-content>
-<div class="footer">
-  <ion-label>No tenes cuenta?</ion-label>
-  <ion-button size="small" color="secondary"
-    class="ion-color ion-color-secondary ios button button-small button-solid ion-activatable ion-focusable hydrated buttonLarge"
-    routerLink="/register">Registrate aqui</ion-button>
-</div>

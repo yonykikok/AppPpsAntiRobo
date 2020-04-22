@@ -9,7 +9,7 @@ export const environment = {
     authDomain: "login-ionic-b9bb9.firebaseapp.com",
     databaseURL: "https://login-ionic-b9bb9.firebaseio.com",
     projectId: "login-ionic-b9bb9",
-    storageBucket: "",
+    storageBucket: "login-ionic-b9bb9.appspot.com",
     messagingSenderId: "184383581648",
     appId: "1:184383581648:web:fb8178364b4f4ac5"
   }
