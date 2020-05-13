@@ -8,10 +8,12 @@ ion-toolbar, ion-header{
     }
     #imgLeft{
         animation-name: leftInImg;
+        animation-delay: 7.5s;
         animation-duration: 3s;
     }
     #imgRight{
         animation-name: rightInImg;
+        animation-delay: 7.5s;
         animation-duration: 3s;
     }
 }
@@ -49,12 +51,15 @@ ion-toolbar, ion-header{
         color: red;
         transform: rotateZ(0deg);
     }
+    30%{
+
+        transform: rotateY(180deg) translate(0px, 0px ) ;//skew(-3deg, 20deg);
+    }
     80%{
         color: red;
     }
       to{
         color: white;
-        transform: rotateY(180deg) translate(0px, 0px ) ;//skew(-3deg, 20deg);
       }
   }
   @keyframes rightIn{
